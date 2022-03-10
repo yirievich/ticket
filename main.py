@@ -1,9 +1,18 @@
-money = int(input("Сумма вклада: "))
-
-per_cent = {'ТКБ': 5.6, 'СКБ': 5.9, 'ВТБ': 4.28, 'СБЕР': 4.0}
-deposit = []
-
-for value in per_cent.values():
-   result = int(money / 100 * value)
-   deposit.append(result)
-print("Максимальная сумма, которую вы можете заработать - ",max(deposit))
+tickets = int(input("Введите необходимое количество билетов:\n"))
+num = []
+count = 1
+while count != tickets+1 :
+    print(f"Введите возраст посетителя №{count}:")
+    age = int(input())
+    if age < 18 :
+        price = 0
+    elif 18 <= age < 25 :
+        price = 990
+    else :
+        price = 1390
+    num.append(price)
+    count += 1
+if len(num)>3:
+    print("Общая стоимость ваших билетов с учетом 10% скидки:", int(sum(num) * 0.9))
+else:
+    print("Общая стоимость ваших билетов:", sum(num))
